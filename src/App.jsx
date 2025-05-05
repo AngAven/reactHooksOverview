@@ -1,4 +1,4 @@
-import {Counter} from "./hooks/useState/01_counter.jsx";
+import {Counter} from "./hooks/useState/counter/01_counter.jsx";
 
 function App() {
     return (
