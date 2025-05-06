@@ -104,11 +104,20 @@ const Navigation = () => {
               </li>
               <li>
                 <NavLink
-                  to="/use-state/initializer"
+                  to="/use-state/passing-initializer-function"
                   className={dropdownLinkStyles}
                   onClick={() => setActiveDropdown(null)}
                 >
-                  Initializer
+                  Passing Initializer Function
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to="/use-state/passing-initial-state-directly"
+                  className={dropdownLinkStyles}
+                  onClick={() => setActiveDropdown(null)}
+                >
+                  Passing Initial State Directly
                 </NavLink>
               </li>
             </ul>

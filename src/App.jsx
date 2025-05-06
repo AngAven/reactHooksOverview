@@ -3,7 +3,12 @@ import { Counter } from "./hooks/useState/counter/counter.jsx";
 import { FormObject } from "./hooks/useState/Form/FormObject.jsx";
 import Navigation from "./components/Navigation.jsx";
 import Home from "./components/Home.jsx";
-import {PassingInitializer} from "./hooks/useState/PassingInitializerOrState/PassingInitializer.jsx";
+import {PassingInitializerFunction} from "./hooks/useState/PassingInitializerOrState/PassingInitializerFunction.jsx";
+import {PassingInitialState} from "./hooks/useState/PassingInitializerOrState/PassingInitialState.jsx";
+
+function PassingIn() {
+    return null;
+}
 
 function App() {
     return (
@@ -17,7 +22,8 @@ function App() {
                     {/* useState routes */}
                     <Route path="/use-state/counter" element={<Counter />} />
                     <Route path="/use-state/form" element={<FormObject />} />
-                    <Route path="/use-state/initializer" element={<PassingInitializer />} />
+                    <Route path="/use-state/passing-initializer-function" element={<PassingInitializerFunction />} />
+                    <Route path="/use-state/passing-initial-state-directly" element={<PassingInitialState />} />
 
                     {/* useEffect routes */}
                     <Route path="/use-effect" element={
