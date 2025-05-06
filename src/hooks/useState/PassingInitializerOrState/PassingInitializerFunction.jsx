@@ -14,7 +14,7 @@ const createInitialTodos = () => {
     return initialTodos
 }
 
-const PassingInitializer = () => {
+const PassingInitializerFunction = () => {
     const [todos, setTodos] = useState(createInitialTodos)
     const [text, setText] = useState('')
 
@@ -42,4 +42,4 @@ const PassingInitializer = () => {
     )
 }
 
-export {PassingInitializer}
+export {PassingInitializerFunction}
