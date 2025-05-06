@@ -159,7 +159,7 @@ const Counter = () => {
             <div className="counter-section">
                 <div className="counter-header">
                     <h3 className="counter-title">Counter 4</h3>
-                    <p className="counter-description">Initialize useState(() => fn()) with a function (well
+                    <p className="counter-description">Initialize useState(() ={'>'} fn()) with a function (well
                         passing) </p>
                     <code className="code-block">
                         {`decrementCount2(){setCount4(prevCount4 => prevCount4 +- 1)}`}

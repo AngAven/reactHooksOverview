@@ -133,6 +133,15 @@ const Navigation = () => {
                   Resetting State with a key
                 </NavLink>
               </li>
+              <li>
+                <NavLink
+                  to="/use-state/storing-information-from-previous-renders"
+                  className={dropdownLinkStyles}
+                  onClick={() => setActiveDropdown(null)}
+                >
+                  Storing Information from Previous Renders
+                </NavLink>
+              </li>
             </ul>
           </li>
 

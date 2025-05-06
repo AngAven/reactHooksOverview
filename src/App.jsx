@@ -6,6 +6,9 @@ import Home from "./components/Home.jsx";
 import {PassingInitializerFunction} from "./hooks/useState/PassingInitializerOrState/PassingInitializerFunction.jsx";
 import {PassingInitialState} from "./hooks/useState/PassingInitializerOrState/PassingInitialState.jsx";
 import {ResettingStateWithAkey} from "./hooks/useState/ResettingStateWithAkey/ResettingStateWithAkey.jsx";
+import {
+    StoringInformationFromPreviousRenders
+} from "./hooks/useState/StoringInformationFromPreviousRenders/StoringInformationFromPreviousRenders.jsx";
 
 function PassingIn() {
     return null;
@@ -26,6 +29,7 @@ function App() {
                     <Route path="/use-state/passing-initializer-function" element={<PassingInitializerFunction />} />
                     <Route path="/use-state/passing-initial-state-directly" element={<PassingInitialState />} />
                     <Route path="/use-state/resetting-state-with-akey" element={<ResettingStateWithAkey/>} />
+                    <Route path="/use-state/storing-information-from-previous-renders" element={<StoringInformationFromPreviousRenders/>} />
 
                     {/* useEffect routes */}
                     <Route path="/use-effect" element={
