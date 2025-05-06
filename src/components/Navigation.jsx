@@ -36,24 +36,29 @@ const Navigation = () => {
   // Common styles for NavLinks
   const navLinkStyles = ({ isActive }) => 
     isActive 
-      ? "font-bold text-indigo-600 px-4 py-3 rounded-md bg-indigo-50 transition-all duration-200 shadow-sm" 
-      : "text-gray-600 hover:text-indigo-600 px-4 py-3 rounded-md hover:bg-gray-50 transition-all duration-200";
+      ? "active-nav-link" 
+      : "nav-link";
 
   const dropdownLinkStyles = ({ isActive }) => 
     isActive 
-      ? "block px-5 py-2 text-sm font-bold text-indigo-600 bg-indigo-50 transition-all duration-200" 
-      : "block px-5 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-indigo-600 transition-all duration-200";
+      ? "active-dropdown-link" 
+      : "dropdown-link";
 
   return (
-    <nav ref={navRef} className="bg-white shadow-lg mb-8 p-6 rounded-lg">
-      <div className="flex flex-col md:flex-row items-center justify-between">
+    <nav ref={navRef} className="navigation">
+      <div className="navigation-container">
         {/* Logo/Title */}
-        <div className="mb-6 md:mb-0">
-          <h1 className="text-2xl font-bold text-indigo-600">React Hooks Examples</h1>
+        <div className="logo-container">
+          <h1 className="site-title">
+            <svg xmlns="http://www.w3.org/2000/svg" className="logo-icon" viewBox="0 0 20 20" fill="currentColor">
+              <path d="M11 3a1 1 0 10-2 0v1a1 1 0 102 0V3zM15.657 5.757a1 1 0 00-1.414-1.414l-.707.707a1 1 0 001.414 1.414l.707-.707zM18 10a1 1 0 01-1 1h-1a1 1 0 110-2h1a1 1 0 011 1zM5.05 6.464A1 1 0 106.464 5.05l-.707-.707a1 1 0 00-1.414 1.414l.707.707zM5 10a1 1 0 01-1 1H3a1 1 0 110-2h1a1 1 0 011 1zM8 16v-1h4v1a2 2 0 11-4 0zM12 14c.015-.34.208-.646.477-.859a4 4 0 10-4.954 0c.27.213.462.519.476.859h4.002z" />
+            </svg>
+            React Hooks Examples
+          </h1>
         </div>
 
         {/* Navigation Links */}
-        <ul className="flex flex-wrap gap-3 md:gap-4 justify-center w-full md:w-auto list-none">
+        <ul className="nav-links">
           <li>
             <NavLink 
               to="/" 
@@ -65,24 +70,23 @@ const Navigation = () => {
           </li>
 
           {/* useState Dropdown */}
-          <li className="relative">
+          <li className="dropdown-item">
             <button 
               onClick={() => toggleDropdown('useState')}
               onKeyDown={(e) => handleKeyDown(e, 'useState')}
-              className={`flex items-center text-gray-600 px-4 py-3 cursor-pointer hover:text-indigo-600 transition-all duration-200 rounded-md hover:bg-gray-50 ${activeDropdown === 'useState' ? 'text-indigo-600 bg-gray-50' : ''}`}
+              className={`dropdown-button ${activeDropdown === 'useState' ? 'dropdown-button-active' : ''}`}
               aria-expanded={activeDropdown === 'useState'}
               aria-haspopup="true"
               tabIndex="0"
             >
-              useState
-              <span 
-                className={`ml-1 transition-transform duration-200 ${activeDropdown === 'useState' ? 'transform rotate-180' : ''}`}
-              >
-                ▼
+              <span className="dropdown-label">useState</span>
+              <span className={`dropdown-icon ${activeDropdown === 'useState' ? 'dropdown-icon-active' : ''}`}>
+                <svg xmlns="http://www.w3.org/2000/svg" className="dropdown-arrow" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
               </span>
             </button>
-            <ul 
-              className={`absolute md:left-0 right-0 md:right-auto mt-2 w-48 bg-white rounded-md shadow-lg py-3 z-10 transition-all duration-200 ${activeDropdown === 'useState' ? 'block' : 'hidden'}`}
+            <ul className={`dropdown-menu ${activeDropdown === 'useState' ? 'dropdown-menu-active' : ''}`}
             >
               <li>
                 <NavLink 
@@ -133,24 +137,23 @@ const Navigation = () => {
           </li>
 
           {/* useEffect Dropdown */}
-          <li className="relative">
+          <li className="dropdown-item">
             <button 
               onClick={() => toggleDropdown('useEffect')}
               onKeyDown={(e) => handleKeyDown(e, 'useEffect')}
-              className={`flex items-center text-gray-600 px-4 py-3 cursor-pointer hover:text-indigo-600 transition-all duration-200 rounded-md hover:bg-gray-50 ${activeDropdown === 'useEffect' ? 'text-indigo-600 bg-gray-50' : ''}`}
+              className={`dropdown-button ${activeDropdown === 'useEffect' ? 'dropdown-button-active' : ''}`}
               aria-expanded={activeDropdown === 'useEffect'}
               aria-haspopup="true"
               tabIndex="0"
             >
-              useEffect
-              <span 
-                className={`ml-1 transition-transform duration-200 ${activeDropdown === 'useEffect' ? 'transform rotate-180' : ''}`}
-              >
-                ▼
+              <span className="dropdown-label">useEffect</span>
+              <span className={`dropdown-icon ${activeDropdown === 'useEffect' ? 'dropdown-icon-active' : ''}`}>
+                <svg xmlns="http://www.w3.org/2000/svg" className="dropdown-arrow" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
               </span>
             </button>
-            <ul 
-              className={`absolute md:left-0 right-0 md:right-auto mt-2 w-48 bg-white rounded-md shadow-lg py-3 z-10 transition-all duration-200 ${activeDropdown === 'useEffect' ? 'block' : 'hidden'}`}
+            <ul className={`dropdown-menu ${activeDropdown === 'useEffect' ? 'dropdown-menu-active' : ''}`}
             >
               <li>
                 <NavLink 
@@ -165,24 +168,23 @@ const Navigation = () => {
           </li>
 
           {/* useContext Dropdown */}
-          <li className="relative">
+          <li className="dropdown-item">
             <button 
               onClick={() => toggleDropdown('useContext')}
               onKeyDown={(e) => handleKeyDown(e, 'useContext')}
-              className={`flex items-center text-gray-600 px-4 py-3 cursor-pointer hover:text-indigo-600 transition-all duration-200 rounded-md hover:bg-gray-50 ${activeDropdown === 'useContext' ? 'text-indigo-600 bg-gray-50' : ''}`}
+              className={`dropdown-button ${activeDropdown === 'useContext' ? 'dropdown-button-active' : ''}`}
               aria-expanded={activeDropdown === 'useContext'}
               aria-haspopup="true"
               tabIndex="0"
             >
-              useContext
-              <span 
-                className={`ml-1 transition-transform duration-200 ${activeDropdown === 'useContext' ? 'transform rotate-180' : ''}`}
-              >
-                ▼
+              <span className="dropdown-label">useContext</span>
+              <span className={`dropdown-icon ${activeDropdown === 'useContext' ? 'dropdown-icon-active' : ''}`}>
+                <svg xmlns="http://www.w3.org/2000/svg" className="dropdown-arrow" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
               </span>
             </button>
-            <ul 
-              className={`absolute md:left-0 right-0 md:right-auto mt-2 w-48 bg-white rounded-md shadow-lg py-3 z-10 transition-all duration-200 ${activeDropdown === 'useContext' ? 'block' : 'hidden'}`}
+            <ul className={`dropdown-menu ${activeDropdown === 'useContext' ? 'dropdown-menu-active' : ''}`}
             >
               <li>
                 <NavLink 

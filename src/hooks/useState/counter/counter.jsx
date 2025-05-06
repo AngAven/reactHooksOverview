@@ -71,41 +71,38 @@ const Counter = () => {
 
 
     return (
-        <div
-            className="max-w-md mx-auto my-8 p-8 bg-gradient-to-br from-white to-gray-50 rounded-xl shadow-lg border border-gray-100">
-            <div className="space-y-6">
-                <div className="text-center">
-                    <h3 className="text-2xl font-bold text-gray-800 mb-2">Counter 1</h3>
-                    <p className="text-gray-600 mb-2">Method: change the value calling setCount inline the button</p>
-                    <code
-                        className="block p-3 bg-gray-100 rounded-lg text-sm font-mono text-indigo-600 overflow-x-auto">
+        <div className="counter-container">
+            <div className="counter-section">
+                <div className="counter-header">
+                    <h3 className="counter-title">Counter 1</h3>
+                    <p className="counter-description">Method: change the value calling setCount inline the button</p>
+                    <code className="code-block">
                         {`setCount((count) => count + 1)`}
                     </code>
                 </div>
-                <div className="flex justify-center items-center">
-                    <p className="text-5xl font-bold text-indigo-600 py-4 px-8 rounded-lg bg-indigo-50">{count1}</p>
+                <div className="counter-display-container">
+                    <p className="counter-display">{count1}</p>
                 </div>
-                <div className="flex justify-center space-x-6">
+                <div className="counter-buttons">
                     <button
-                        className="w-16 h-16 bg-indigo-500 text-white text-xl font-semibold rounded-md hover:bg-indigo-600 transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-1"
+                        className="increment-button"
                         onClick={() => setCount1(prevCount1 => prevCount1 + 1)}
                     >
                         +
                     </button>
                     <button
-                        className="w-16 h-16 bg-pink-500 text-white text-xl font-semibold rounded-md hover:bg-pink-600 transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-1"
+                        className="decrement-button"
                         onClick={() => setCount1(prevCount1 => prevCount1 - 1)}
                     >
                         -
                     </button>
                 </div>
             </div>
-            <div className="space-y-6">
-                <div className="text-center">
-                    <h3 className="text-2xl font-bold text-gray-800 mb-2">Counter 2</h3>
-                    <p className="text-gray-600 mb-2">Counter 2 - calls twice setCount() inside function</p>
-                    <code
-                        className="block p-3 bg-gray-100 rounded-lg text-sm font-mono text-indigo-600 overflow-x-auto">
+            <div className="counter-section">
+                <div className="counter-header">
+                    <h3 className="counter-title">Counter 2</h3>
+                    <p className="counter-description">Counter 2 - calls twice setCount() inside function</p>
+                    <code className="code-block">
                         {`decrementCount2(){`}
                         <br/>
                         {'setCount((prevCount) => prevCount +- 1)'}
@@ -115,124 +112,121 @@ const Counter = () => {
                         {'}'}
                     </code>
                 </div>
-                <div className="flex justify-center items-center">
-                    <p className="text-5xl font-bold text-indigo-600 py-4 px-8 rounded-lg bg-indigo-50">{count2}</p>
+                <div className="counter-display-container">
+                    <p className="counter-display">{count2}</p>
                 </div>
-                <div className="flex justify-center space-x-6">
+                <div className="counter-buttons">
                     <button
-                        className="w-16 h-16 bg-indigo-500 text-white text-xl font-semibold rounded-md hover:bg-indigo-600 transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-1"
+                        className="increment-button"
                         onClick={() => addCount2()}
                     >
                         +
                     </button>
                     <button
-                        className="w-16 h-16 bg-pink-500 text-white text-xl font-semibold rounded-md hover:bg-pink-600 transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-1"
+                        className="decrement-button"
                         onClick={() => decrementCount2()}
                     >
                         -
                     </button>
                 </div>
             </div>
-            <div className="space-y-6">
-                <div className="text-center">
-                    <h3 className="text-2xl font-bold text-gray-800 mb-2">Counter 3</h3>
-                    <p className="text-gray-600 mb-2">Initialize useState(fn()) with a function (bad passing) </p>
-                    <code
-                        className="block p-3 bg-gray-100 rounded-lg text-sm font-mono text-indigo-600 overflow-x-auto">
+            <div className="counter-section">
+                <div className="counter-header">
+                    <h3 className="counter-title">Counter 3</h3>
+                    <p className="counter-description">Initialize useState(fn()) with a function (bad passing) </p>
+                    <code className="code-block">
                         {`useState(countInitial())`}
                     </code>
                 </div>
-                <div className="flex justify-center items-center">
-                    <p className="text-5xl font-bold text-indigo-600 py-4 px-8 rounded-lg bg-indigo-50">{count3}</p>
+                <div className="counter-display-container">
+                    <p className="counter-display">{count3}</p>
                 </div>
-                <div className="flex justify-center space-x-6">
+                <div className="counter-buttons">
                     <button
-                        className="w-16 h-16 bg-indigo-500 text-white text-xl font-semibold rounded-md hover:bg-indigo-600 transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-1"
+                        className="increment-button"
                         onClick={() => addCount3()}
                     >
                         +
                     </button>
                     <button
-                        className="w-16 h-16 bg-pink-500 text-white text-xl font-semibold rounded-md hover:bg-pink-600 transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-1"
+                        className="decrement-button"
                         onClick={() => decrementCount3()}
                     >
                         -
                     </button>
                 </div>
             </div>
-            <div className="space-y-6">
-                <div className="text-center">
-                    <h3 className="text-2xl font-bold text-gray-800 mb-2">Counter 4</h3>
-                    <p className="text-gray-600 mb-2">Initialize useState(() => fn()) with a function (well
+            <div className="counter-section">
+                <div className="counter-header">
+                    <h3 className="counter-title">Counter 4</h3>
+                    <p className="counter-description">Initialize useState(() => fn()) with a function (well
                         passing) </p>
-                    <code
-                        className="block p-3 bg-gray-100 rounded-lg text-sm font-mono text-indigo-600 overflow-x-auto">
+                    <code className="code-block">
                         {`decrementCount2(){setCount4(prevCount4 => prevCount4 +- 1)}`}
                     </code>
                 </div>
-                <div className="flex justify-center items-center">
-                    <p className="text-5xl font-bold text-indigo-600 py-4 px-8 rounded-lg bg-indigo-50">{count4}</p>
+                <div className="counter-display-container">
+                    <p className="counter-display">{count4}</p>
                 </div>
-                <div className="flex justify-center space-x-6">
+                <div className="counter-buttons">
                     <button
-                        className="w-16 h-16 bg-indigo-500 text-white text-xl font-semibold rounded-md hover:bg-indigo-600 transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-1"
+                        className="increment-button"
                         onClick={() => addCount4()}
                     >
                         +
                     </button>
                     <button
-                        className="w-16 h-16 bg-pink-500 text-white text-xl font-semibold rounded-md hover:bg-pink-600 transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-1"
+                        className="decrement-button"
                         onClick={() => decrementCount4()}
                     >
                         -
                     </button>
                 </div>
             </div>
-            <div className="space-y-6">
-                <div className="text-center">
-                    <h3 className="text-2xl font-bold text-gray-800 mb-2">Counter 5</h3>
-                    <p className="text-gray-600 mb-2">Working with objects: override state if just changed count, we have to spread out  </p>
-                    <code
-                        className="block p-3 bg-gray-100 rounded-lg text-sm font-mono text-indigo-600 overflow-x-auto">
+            <div className="counter-section">
+                <div className="counter-header">
+                    <h3 className="counter-title">Counter 5</h3>
+                    <p className="counter-description">Working with objects: override state if just changed count, we have to spread out  </p>
+                    <code className="code-block">
                         {` `}
                     </code>
                 </div>
-                <div className="flex flex-col justify-center items-center ">
-                    <pre className="text-5xl font-bold text-indigo-600 py-4 px-8 rounded-lg bg-indigo-50">
+                <div className="state-display-container">
+                    <pre className="state-display">
                             {JSON.stringify(state, null, 2)}
                     </pre>
-                    <p>
+                    <p className="state-property">
                         Count: {count5}
                     </p>
-                    <p>
+                    <p className="state-property">
                         Theme: {theme5}
                     </p>
                 </div>
-                <div className="flex justify-center space-x-6">
-                    <span>Counter 5: override state</span>
+                <div className="counter-buttons-group">
+                    <span className="button-group-label">Counter 5: override state</span>
                     <button
-                        className="w-16 h-16 bg-indigo-500 text-white text-xl font-semibold rounded-md hover:bg-indigo-600 transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-1"
+                        className="increment-button"
                         onClick={() => addCount5()}
                     >
                         +
                     </button>
                     <button
-                        className="w-16 h-16 bg-pink-500 text-white text-xl font-semibold rounded-md hover:bg-pink-600 transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-1"
+                        className="decrement-button"
                         onClick={() => decrementCount5()}
                     >
                         -
                     </button>
                 </div>
-                <div className="flex justify-center space-x-6">
-                    <span>Counter 5 update the state</span>
+                <div className="counter-buttons-group">
+                    <span className="button-group-label">Counter 5 update the state</span>
                     <button
-                        className="w-16 h-16 bg-indigo-500 text-white text-xl font-semibold rounded-md hover:bg-indigo-600 transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-1"
+                        className="increment-button"
                         onClick={() => addCount5Spread()}
                     >
                         +
                     </button>
                     <button
-                        className="w-16 h-16 bg-pink-500 text-white text-xl font-semibold rounded-md hover:bg-pink-600 transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-1"
+                        className="decrement-button"
                         onClick={() => decrementCount5Spread()}
                     >
                         -

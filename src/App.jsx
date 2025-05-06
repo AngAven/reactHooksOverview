@@ -13,8 +13,8 @@ function PassingIn() {
 
 function App() {
     return (
-        <div className="min-h-screen bg-gray-100 py-8 px-4">
-            <div className="max-w-4xl mx-auto">
+        <div className="app-container">
+            <div className="content-wrapper">
                 <Navigation />
                 <Routes>
                     {/* Home route */}
@@ -29,9 +29,9 @@ function App() {
 
                     {/* useEffect routes */}
                     <Route path="/use-effect" element={
-                        <div className="max-w-4xl mx-auto bg-white p-8 rounded-xl shadow-md">
-                            <h2 className="text-2xl font-bold text-center text-gray-800 mb-4">useEffect Examples</h2>
-                            <p className="text-center text-gray-600">Coming soon!</p>
+                        <div className="coming-soon-container">
+                            <h2 className="coming-soon-title">useEffect Examples</h2>
+                            <p className="coming-soon-text">Coming soon!</p>
                         </div>
                     } />
                     {/* Add more useEffect example routes here as they are developed */}
@@ -39,9 +39,9 @@ function App() {
 
                     {/* useContext routes */}
                     <Route path="/use-context" element={
-                        <div className="max-w-4xl mx-auto bg-white p-8 rounded-xl shadow-md">
-                            <h2 className="text-2xl font-bold text-center text-gray-800 mb-4">useContext Examples</h2>
-                            <p className="text-center text-gray-600">Coming soon!</p>
+                        <div className="coming-soon-container">
+                            <h2 className="coming-soon-title">useContext Examples</h2>
+                            <p className="coming-soon-text">Coming soon!</p>
                         </div>
                     } />
                     {/* Add more useContext example routes here as they are developed */}
