@@ -120,6 +120,15 @@ const Navigation = () => {
                   Passing Initial State Directly
                 </NavLink>
               </li>
+              <li>
+                <NavLink
+                  to="/use-state/resetting-state-with-akey"
+                  className={dropdownLinkStyles}
+                  onClick={() => setActiveDropdown(null)}
+                >
+                  Resetting State with a key
+                </NavLink>
+              </li>
             </ul>
           </li>
 
