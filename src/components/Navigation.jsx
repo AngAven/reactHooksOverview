@@ -98,15 +98,6 @@ const Navigation = () => {
                 </NavLink>
               </li>
               <li>
-                <NavLink 
-                  to="/use-state/form" 
-                  className={dropdownLinkStyles}
-                  onClick={() => setActiveDropdown(null)}
-                >
-                  Form Object
-                </NavLink>
-              </li>
-              <li>
                 <NavLink
                   to="/use-state/passing-initializer-function"
                   className={dropdownLinkStyles}
@@ -166,11 +157,11 @@ const Navigation = () => {
             >
               <li>
                 <NavLink 
-                  to="/use-effect" 
+                  to="/use-effect/example"
                   className={dropdownLinkStyles}
                   onClick={() => setActiveDropdown(null)}
                 >
-                  Coming Soon
+                  API Request
                 </NavLink>
               </li>
             </ul>

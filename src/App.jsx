@@ -1,6 +1,5 @@
 import { Routes, Route } from "react-router-dom";
 import { Counter } from "./hooks/useState/counter/counter.jsx";
-import { FormObject } from "./hooks/useState/Form/FormObject.jsx";
 import Navigation from "./components/Navigation.jsx";
 import Home from "./components/Home.jsx";
 import {PassingInitializerFunction} from "./hooks/useState/PassingInitializerOrState/PassingInitializerFunction.jsx";
@@ -9,10 +8,7 @@ import {ResettingStateWithAkey} from "./hooks/useState/ResettingStateWithAkey/Re
 import {
     StoringInformationFromPreviousRenders
 } from "./hooks/useState/StoringInformationFromPreviousRenders/StoringInformationFromPreviousRenders.jsx";
-
-function PassingIn() {
-    return null;
-}
+import {Api} from "./hooks/api.jsx";
 
 function App() {
     return (
@@ -25,7 +21,6 @@ function App() {
 
                     {/* useState routes */}
                     <Route path="/use-state/counter" element={<Counter />} />
-                    <Route path="/use-state/form" element={<FormObject />} />
                     <Route path="/use-state/passing-initializer-function" element={<PassingInitializerFunction />} />
                     <Route path="/use-state/passing-initial-state-directly" element={<PassingInitialState />} />
                     <Route path="/use-state/resetting-state-with-akey" element={<ResettingStateWithAkey/>} />
@@ -38,8 +33,9 @@ function App() {
                             <p className="coming-soon-text">Coming soon!</p>
                         </div>
                     } />
+                    <Route path={'/use-effect/example'} element={<Api/>}/>
                     {/* Add more useEffect example routes here as they are developed */}
-                    {/* Example: <Route path="/use-effect/example1" element={<UseEffectExample1 />} /> */}
+                    {/* Api: <Route path="/use-effect/example1" element={<UseEffectExample1 />} /> */}
 
                     {/* useContext routes */}
                     <Route path="/use-context" element={
@@ -49,7 +45,7 @@ function App() {
                         </div>
                     } />
                     {/* Add more useContext example routes here as they are developed */}
-                    {/* Example: <Route path="/use-context/example1" element={<UseContextExample1 />} /> */}
+                    {/* Api: <Route path="/use-context/example1" element={<UseContextExample1 />} /> */}
                 </Routes>
             </div>
         </div>
