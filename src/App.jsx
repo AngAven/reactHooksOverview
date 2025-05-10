@@ -10,6 +10,7 @@ import {
 } from "./hooks/useState/StoringInformationFromPreviousRenders/StoringInformationFromPreviousRenders.jsx";
 import {RequestAPI} from "./hooks/useEffect/RequestAPI.jsx";
 import {WindowWidth} from "./hooks/useEffect/windowWidth.jsx";
+import {ChatWrapper} from "./hooks/useEffect/ConnectingToAchatServer/ConnectingToAchatServer.jsx";
 
 function App() {
     return (
@@ -30,6 +31,7 @@ function App() {
                     {/* useEffect routes */}
                     <Route path={'/use-effect/api-request'} element={<RequestAPI/>}/>
                     <Route path={'/use-effect/window-width'} element={<WindowWidth/>}/>
+                    <Route path={'/use-effect/connecting-to-chat-server'} element={<ChatWrapper/>}/>
 
 
                     {/* useContext routes */}

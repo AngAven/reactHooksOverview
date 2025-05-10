@@ -173,6 +173,15 @@ const Navigation = () => {
                   Window Width
                 </NavLink>
               </li>
+              <li>
+                <NavLink
+                  to="/use-effect/connecting-to-chat-server"
+                  className={dropdownLinkStyles}
+                  onClick={() => setActiveDropdown(null)}
+                >
+                  Connecting to a chat server
+                </NavLink>
+              </li>
             </ul>
           </li>
 
