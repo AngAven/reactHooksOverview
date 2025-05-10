@@ -5,6 +5,8 @@ const Api = () => {
     const [data, setData] = useState(null)
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState(null)
+    const [currentPage, setCurrentPage] = useState(1)
+    const [itemsPerPage] = useState(10)
 
     const getJsonStyles = (isDark = false, maxHeight = 200) => {
         return {
@@ -22,6 +24,9 @@ const Api = () => {
     }
 
     useEffect(() => {
+        // Reset to page 1 when resource changes
+        setCurrentPage(1)
+
         const fetchResource = async () => {
             try {
                 setLoading(true)
@@ -45,23 +50,45 @@ const Api = () => {
         fetchResource()
     }, [resource])
 
+    // Get current items for pagination
+    const indexOfLastItem = currentPage * itemsPerPage;
+    const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+    const currentItems = data ? data.slice(indexOfFirstItem, indexOfLastItem) : [];
+
+    // Change page
+    const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
+    // Go to next page
+    const nextPage = () => {
+        if (data && currentPage < Math.ceil(data.length / itemsPerPage)) {
+            setCurrentPage(currentPage + 1);
+        }
+    };
+
+    // Go to previous page
+    const prevPage = () => {
+        if (currentPage > 1) {
+            setCurrentPage(currentPage - 1);
+        }
+    };
+
     const showData = () => {
         switch (resource) {
             case 'posts':
                 return (
-                    data.map(item => {
+                    currentItems.map(item => {
                         return <li key={item.id}>Title: {item.title}</li>
                     })
                 )
             case 'users':
                 return (
-                    data.map(item => {
+                    currentItems.map(item => {
                         return <li key={item.id}>Name: {item.name}</li>
                     })
                 )
             case 'comments':
                 return (
-                    data.map(item => {
+                    currentItems.map(item => {
                         return <li key={item.id}>Body: {item.body}</li>
                     })
                 )
@@ -97,6 +124,70 @@ const Api = () => {
                 <ul>
                     {(data && !loading && !error) && showData()}
                 </ul>
+
+                {data && !loading && !error && (
+                    <div style={{ marginTop: '20px' }}>
+                        <div style={{ textAlign: 'center', marginBottom: '10px' }}>
+                            Showing items {indexOfFirstItem + 1}-{Math.min(indexOfLastItem, data.length)} of {data.length}
+                        </div>
+                        <div style={{ display: 'flex', justifyContent: 'center', gap: '10px', alignItems: 'center' }}>
+                            <button 
+                                onClick={prevPage} 
+                                disabled={currentPage === 1}
+                                style={{ 
+                                    padding: '5px 10px', 
+                                    backgroundColor: currentPage === 1 ? '#ccc' : '#007bff',
+                                    color: 'white',
+                                    border: 'none',
+                                    borderRadius: '4px',
+                                    cursor: currentPage === 1 ? 'not-allowed' : 'pointer'
+                                }}
+                            >
+                                Previous
+                            </button>
+
+                            <div style={{ display: 'flex', gap: '5px' }}>
+                                {data && Array.from({ length: Math.min(5, Math.ceil(data.length / itemsPerPage)) }, (_, i) => (
+                                    <button
+                                        key={i + 1}
+                                        onClick={() => paginate(i + 1)}
+                                        style={{
+                                            padding: '5px 10px',
+                                            backgroundColor: currentPage === i + 1 ? '#007bff' : '#f0f0f0',
+                                            color: currentPage === i + 1 ? 'white' : 'black',
+                                            border: 'none',
+                                            borderRadius: '4px',
+                                            cursor: 'pointer'
+                                        }}
+                                    >
+                                        {i + 1}
+                                    </button>
+                                ))}
+                                {data && Math.ceil(data.length / itemsPerPage) > 5 && (
+                                    <span style={{ alignSelf: 'center' }}>...</span>
+                                )}
+                            </div>
+
+                            <button 
+                                onClick={nextPage} 
+                                disabled={data && currentPage === Math.ceil(data.length / itemsPerPage)}
+                                style={{ 
+                                    padding: '5px 10px', 
+                                    backgroundColor: data && currentPage === Math.ceil(data.length / itemsPerPage) ? '#ccc' : '#007bff',
+                                    color: 'white',
+                                    border: 'none',
+                                    borderRadius: '4px',
+                                    cursor: data && currentPage === Math.ceil(data.length / itemsPerPage) ? 'not-allowed' : 'pointer'
+                                }}
+                            >
+                                Next
+                            </button>
+                        </div>
+                        <div style={{ textAlign: 'center', marginTop: '10px' }}>
+                            Page {currentPage} of {data ? Math.ceil(data.length / itemsPerPage) : 0}
+                        </div>
+                    </div>
+                )}
             </div>
         </>
     )
