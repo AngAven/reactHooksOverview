@@ -182,6 +182,15 @@ const Navigation = () => {
                   Connecting to a chat server
                 </NavLink>
               </li>
+              <li>
+                <NavLink
+                  to="/use-effect/listening-global-browser-event"
+                  className={dropdownLinkStyles}
+                  onClick={() => setActiveDropdown(null)}
+                >
+                  Listening Global Browser Event
+                </NavLink>
+              </li>
             </ul>
           </li>
 
