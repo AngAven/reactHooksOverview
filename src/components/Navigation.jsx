@@ -157,11 +157,20 @@ const Navigation = () => {
             >
               <li>
                 <NavLink 
-                  to="/use-effect/example"
+                  to="/use-effect/api-request"
                   className={dropdownLinkStyles}
                   onClick={() => setActiveDropdown(null)}
                 >
                   API Request
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to="/use-effect/window-width"
+                  className={dropdownLinkStyles}
+                  onClick={() => setActiveDropdown(null)}
+                >
+                  Window Width
                 </NavLink>
               </li>
             </ul>

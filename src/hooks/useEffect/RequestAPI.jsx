@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react";
 
-const Api = () => {
+const RequestAPI = () => {
     const [resource, setResource] = useState('posts')
     const [data, setData] = useState(null)
     const [loading, setLoading] = useState(false)
@@ -193,4 +193,4 @@ const Api = () => {
     )
 }
 
-export {Api}
+export {RequestAPI}

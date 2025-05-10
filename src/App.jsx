@@ -8,7 +8,8 @@ import {ResettingStateWithAkey} from "./hooks/useState/ResettingStateWithAkey/Re
 import {
     StoringInformationFromPreviousRenders
 } from "./hooks/useState/StoringInformationFromPreviousRenders/StoringInformationFromPreviousRenders.jsx";
-import {Api} from "./hooks/api.jsx";
+import {RequestAPI} from "./hooks/useEffect/RequestAPI.jsx";
+import {WindowWidth} from "./hooks/useEffect/windowWidth.jsx";
 
 function App() {
     return (
@@ -27,15 +28,9 @@ function App() {
                     <Route path="/use-state/storing-information-from-previous-renders" element={<StoringInformationFromPreviousRenders/>} />
 
                     {/* useEffect routes */}
-                    <Route path="/use-effect" element={
-                        <div className="coming-soon-container">
-                            <h2 className="coming-soon-title">useEffect Examples</h2>
-                            <p className="coming-soon-text">Coming soon!</p>
-                        </div>
-                    } />
-                    <Route path={'/use-effect/example'} element={<Api/>}/>
-                    {/* Add more useEffect example routes here as they are developed */}
-                    {/* Api: <Route path="/use-effect/example1" element={<UseEffectExample1 />} /> */}
+                    <Route path={'/use-effect/api-request'} element={<RequestAPI/>}/>
+                    <Route path={'/use-effect/window-width'} element={<WindowWidth/>}/>
+
 
                     {/* useContext routes */}
                     <Route path="/use-context" element={
@@ -45,7 +40,7 @@ function App() {
                         </div>
                     } />
                     {/* Add more useContext example routes here as they are developed */}
-                    {/* Api: <Route path="/use-context/example1" element={<UseContextExample1 />} /> */}
+                    {/* RequestAPI: <Route path="/use-context/example1" element={<UseContextExample1 />} /> */}
                 </Routes>
             </div>
         </div>
