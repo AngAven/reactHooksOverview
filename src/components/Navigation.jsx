@@ -191,6 +191,15 @@ const Navigation = () => {
                   Listening Global Browser Event
                 </NavLink>
               </li>
+              <li>
+                <NavLink
+                  to="/use-effect/triggering-an-animation"
+                  className={dropdownLinkStyles}
+                  onClick={() => setActiveDropdown(null)}
+                >
+                  Triggering an Animation
+                </NavLink>
+              </li>
             </ul>
           </li>
 
