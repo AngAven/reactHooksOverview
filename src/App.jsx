@@ -13,6 +13,7 @@ import {WindowWidth} from "./hooks/useEffect/windowWidth.jsx";
 import {ChatWrapper} from "./hooks/useEffect/ConnectingToAchatServer/ConnectingToAchatServer.jsx";
 import {ListeningGlobalBrowserEvent} from "./hooks/useEffect/ListeningGlobalBrowserEvent.jsx";
 import {WrapperAnimation} from "./hooks/useEffect/TriggerAnAnimation/WrapperAnimation.jsx";
+import {WrapperModalDialog} from "./hooks/useEffect/ControllingModalDialog/WrapperModalDialog.jsx";
 
 function App() {
     return (
@@ -36,6 +37,7 @@ function App() {
                     <Route path={'/use-effect/connecting-to-chat-server'} element={<ChatWrapper/>}/>
                     <Route path={'/use-effect/listening-global-browser-event'} element={<ListeningGlobalBrowserEvent/>}/>
                     <Route path={'/use-effect/triggering-an-animation'} element={<WrapperAnimation/>}/>
+                    <Route path={'/use-effect/controlling-modal-dialog'} element={<WrapperModalDialog/>}/>
 
 
                     {/* useContext routes */}

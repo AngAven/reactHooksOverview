@@ -200,6 +200,15 @@ const Navigation = () => {
                   Triggering an Animation
                 </NavLink>
               </li>
+              <li>
+                <NavLink
+                  to="/use-effect/controlling-modal-dialog"
+                  className={dropdownLinkStyles}
+                  onClick={() => setActiveDropdown(null)}
+                >
+                  Controlling Modal Dialog
+                </NavLink>
+              </li>
             </ul>
           </li>
 
